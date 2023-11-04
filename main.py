@@ -6,8 +6,8 @@ from os import makedirs
 
 architecture = 7
 learning_rate = 0.001
-perc = 0.01/10
-prefix = "3"
+perc = 0.01
+prefix = "3.5"
 
 makedirs('results', exist_ok=True)
 folder_name = join('results', f"{architecture}_{learning_rate}_{prefix}")
@@ -19,8 +19,7 @@ makedirs(folder_name)
 
 print()
 t = time.time()
-
-model_file = train_model(color_dir=join('..', 'autoencoders-pg', 'data_cleaned', 'data_600_800.1', 'train'),
+model_file = train_model(color_dir=join('data', 'google-landmark', 'train'),
                          perc=perc,
                          folder_name=folder_name,
                          file_name=f"cnn_{prefix}",
@@ -34,10 +33,9 @@ t = time.time() - t
 print(f"Training ran for {time.strftime('%H:%M:%S', time.gmtime(t))}")
 print(f"\n{model_file} created.")
 
-perc = 0.01
 print("\nTesting")
 test_model(model_file=model_file,
-           color_dir=join('..', 'autoencoders-pg', 'data_cleaned', 'data_600_800.1', 'test'),
+           color_dir=join('data', 'google-landmark', 'test'),
            perc=perc,
            folder_name=folder_name,
            file_name="cnn_testing",
