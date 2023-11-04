@@ -2,3 +2,9 @@ results/
 .idea/
 __pycache__/
 .DS_Store
+
+# Ignore all data/ files
+data/*
+# Don't ignore the script that builds the data files
+!data/data_builder.py
+
