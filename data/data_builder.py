@@ -5,7 +5,10 @@ from torchvision.io import read_image
 
 
 def main():
+
+    num_files = get_num_files()
     main_dir = os.getcwd()
+    print()
 
     if not os.path.exists('google-landmark'):
         os.makedirs('google-landmark')
@@ -21,12 +24,12 @@ def main():
     script_path = os.path.join('..', 'download-dataset.sh')  # Path for the download script
 
     os.chdir(train_path)
-    subprocess.run(['bash', script_path, 'train', '000'])
+    subprocess.run(['bash', script_path, 'train', num_files[0]])
     print('Downloaded training images\n')
     os.chdir(main_dir)  # Go back
 
     os.chdir(test_path)
-    subprocess.run(['bash', script_path, 'test', '00'])
+    subprocess.run(['bash', script_path, 'test', num_files[1]])
     print('Downloaded test images\n')
     os.chdir(main_dir)
 
@@ -68,25 +71,15 @@ def main():
     print(f'Removed {test_path_new}')
 
 
-def relocate_from_dict(img_dict, new_path, move=True):
+def get_num_files():
     """
-    Relocate files given in the keys of `img_dict` to the `new_path`.
-    :param img_dict: dict for the images (as keys)
-    :param new_path: str for the new path for those images
-    :param move: bool for whether to move (True) or copy (False)
-    :return: int indicating the number of files moved
+    Return the number of TAR files to download for training and testing by the user's input
+    :return: tuple for the number of training files and the number of testing files.
     """
-    num = 0
-    for path in img_dict.keys():
-        file = os.path.split(path)[1]
+    train_num = input('Enter the number training TAR files to fetch (000-499): ')
+    test_num = input('Enter the number testing TAR files to fetch (00-19): ')
 
-        if move:
-            shutil.move(path, os.path.join(new_path, file))
-        else:
-            shutil.copy(path, os.path.join(new_path, file))
-
-        num += 1
-    return num
+    return str(train_num), str(test_num)
 
 
 def relocate_jpg_files(src, dst, move=True):
@@ -135,6 +128,27 @@ def get_shape_paths(paths, desired_shape):
             paths_dict[path] = shape
 
     return paths_dict
+
+
+def relocate_from_dict(img_dict, new_path, move=True):
+    """
+    Relocate files given in the keys of `img_dict` to the `new_path`.
+    :param img_dict: dict for the images (as keys)
+    :param new_path: str for the new path for those images
+    :param move: bool for whether to move (True) or copy (False)
+    :return: int indicating the number of files moved
+    """
+    num = 0
+    for path in img_dict.keys():
+        file = os.path.split(path)[1]
+
+        if move:
+            shutil.move(path, os.path.join(new_path, file))
+        else:
+            shutil.copy(path, os.path.join(new_path, file))
+
+        num += 1
+    return num
 
 
 if __name__ == '__main__':
