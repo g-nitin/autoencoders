@@ -8,3 +8,8 @@ data/*
 # Don't ignore the script that builds the data files
 !data/data_builder.py
 
+*_old.py
+r* 
+*.sh
+
+sclurm_outs/

@@ -2,11 +2,13 @@ import subprocess
 import os
 import shutil
 from torchvision.io import read_image
-
+import sys
 
 def main():
 
-    num_files = get_num_files()
+    # num_files = get_num_files()
+    # num_files = ('010', '01')
+    num_files = (sys.argv[1], sys.argv[2])
     main_dir = os.getcwd()
     print()
 
