@@ -16,7 +16,7 @@ def plot_loss(loss, title, filename):
     plt.savefig(f"figures/{filename}.png")
 
 
-def plot_losses2(losses, path):
+def plot_losses(losses, path):
     """
     Plots multiple losses for each epoch.
     Reference: towardsdatascience.com/5-steps-to-build-beautiful-line-charts-with-python-655ac5477310

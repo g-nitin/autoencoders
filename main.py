@@ -11,7 +11,7 @@ def main():
     use_gpu = sys.argv[1]
 
     # If you have to GPUs and the GPUs are not available
-    if use_gpu == 'True'  and not is_available():
+    if use_gpu == 'True' and not is_available():
         print('GPUs not available')
         exit()
 
