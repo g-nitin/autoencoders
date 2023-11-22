@@ -25,11 +25,12 @@ def main():
     if exists(folder_name):
         print(f'This results folder already exists: {folder_name}'
               f'\nChanging the prefix by 1.')
-	
-	prefix = str(int(prefix) + 1)
-	print(f'\nNew folder name: {folder_name}')
- 
-   makedirs(folder_name)
+
+        prefix = str(int(prefix) + 1)
+        print(f'\nNew folder name: {folder_name}')
+
+    folder_name = join('results', f"{architecture}_{learning_rate}_{prefix}")
+    makedirs(folder_name)
 
     print()
     t = time.time()
