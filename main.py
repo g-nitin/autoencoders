@@ -15,18 +15,21 @@ def main():
         print('GPUs not available')
         exit()
 
-    architecture = 7
+    architecture = 1
     learning_rate = 0.001
     perc = 1
-    prefix = "3"
+    prefix = "4"
 
     makedirs('results', exist_ok=True)
     folder_name = join('results', f"{architecture}_{learning_rate}_{prefix}")
     if exists(folder_name):
         print(f'This results folder already exists: {folder_name}'
-              f'\nTry changing the name to avoid overriding')
-        exit()
-    makedirs(folder_name)
+              f'\nChanging the prefix by 1.')
+	
+	prefix = str(int(prefix) + 1)
+	print(f'\nNew folder name: {folder_name}')
+ 
+   makedirs(folder_name)
 
     print()
     t = time.time()

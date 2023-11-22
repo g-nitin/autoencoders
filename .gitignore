@@ -11,6 +11,8 @@ data/*
 *_old.py
 r* 
 *.sh
+*.err
+*.out
 
 sclurm_outs/
 
