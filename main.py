@@ -16,7 +16,7 @@ if use_gpu == 'True'  and not is_available():
 architecture = 7
 learning_rate = 0.001
 perc = 1
-prefix = "2"
+prefix = "3"
 
 makedirs('results', exist_ok=True)
 folder_name = join('results', f"{architecture}_{learning_rate}_{prefix}")
@@ -28,7 +28,6 @@ makedirs(folder_name)
 
 print()
 t = time.time()
-
 model_file = train_model(color_dir=join('data', 'google-landmark', 'train'),
                          perc=perc,
                          folder_name=folder_name,

@@ -29,7 +29,7 @@ def train_model(color_dir, perc, folder_name, file_name, architecture,
 
     # Loading Dataset and creating the corresponding DataLoader.
     training_data = ImageDataset(color_dir=color_dir, perc=perc, gray_dir=gray_dir)
-    train_data_loader = DataLoader(training_data, batch_size=32, shuffle=True)
+    train_data_loader = DataLoader(training_data, batch_size=20, shuffle=True)
     print(f"Training on {len(training_data)} images.")
 
     cnn = instantiate_network(architecture)

@@ -27,7 +27,7 @@ def test_model(model_file, color_dir, perc, folder_name, file_name, architecture
 
     # Loading Dataset and creating the corresponding DataLoader.
     data = ImageDataset(color_dir=color_dir, perc=perc, gray_dir=gray_dir)
-    data_loader = DataLoader(data, batch_size=5, shuffle=False)
+    data_loader = DataLoader(data, batch_size=20, shuffle=False)
     print(f"Testing on {len(data)} images.")
 
     # Loading the NN and passing the data.
@@ -167,7 +167,7 @@ def calculate_loss(model_file, file_name, color_dir, gray_dir=None, architecture
     """
     # Loading Dataset and creating the corresponding DataLoader.
     data = ImageDataset(color_dir=color_dir, gray_dir=gray_dir)
-    data_loader = DataLoader(data, batch_size=32, shuffle=False)
+    data_loader = DataLoader(data, batch_size=20, shuffle=False)
 
     # Loading the NN and passing the data.
     cnn = instantiate_network(architecture)
@@ -223,7 +223,7 @@ def render_layer_output(model_file, color_dir, folder_name, file_name, architect
 
     # Loading Dataset and creating the corresponding DataLoader.
     data = ImageDataset(color_dir=color_dir, gray_dir=None, transform=trans, target_transform=trans)
-    data_loader = DataLoader(data, batch_size=1, shuffle=True)
+    data_loader = DataLoader(data, batch_size=20, shuffle=True)
 
     # Setting up activation hooks.
     activation = {}
