@@ -1,9 +1,9 @@
 import torch.nn as nn
-from torchvision import transforms as T
+# from torchvision import transforms as T
 from torch.utils.data import DataLoader
 from torch import load, no_grad, cat
 from torch import from_numpy
-from Dataset import ImageDataset
+from dataset import ImageDataset
 from utilities import instantiate_network, register_hooks
 import matplotlib.pyplot as plt
 from skimage.color import lab2rgb
@@ -156,11 +156,12 @@ def test_model(model_file, color_dir, perc, folder_name, file_name, architecture
     print(f"Total losses saved at: {f_name}")
 
 
-def calculate_loss(model_file, file_name, color_dir, gray_dir=None, architecture=1):
+def calculate_loss(model_file, file_name, folder_name, color_dir, gray_dir=None, architecture=1):
     """
     Calculates the loss of the given model.
     :param model_file: The model file.
     :param file_name: The file name prefix to be used to save images.
+    :param folder_name: The folder name to be used to store the images.
     :param color_dir: The directory where the colored images are stored.
     :param gray_dir: The directory where the gray images are stored.
     :param architecture: The architecture of the model.
@@ -203,9 +204,17 @@ def calculate_loss(model_file, file_name, color_dir, gray_dir=None, architecture
                 total_loss += loss.item()
 
     # Store total loss in json file
-    print("____\n\n")
-    with open(f"figures/testing_{file_name}_total_loss.json", "w") as results_file:
+    if folder_name is not None:
+        figures_dir = join(folder_name, 'figures')
+    else:
+        figures_dir = 'figures'
+
+    makedirs(figures_dir, exist_ok=True)
+    f_name = join(figures_dir, f'testing_{file_name}_total_loss.json')
+
+    with open(f_name, "w") as results_file:
         json.dump({"total_loss": total_loss}, results_file)
+    print(f"Total losses saved at: {f_name}")
 
 
 def render_layer_output(model_file, color_dir, folder_name, file_name, architecture, number_of_filters):
@@ -219,10 +228,8 @@ def render_layer_output(model_file, color_dir, folder_name, file_name, architect
     :param number_of_filters: The number of filters to be rendered on the images.
     """
 
-    trans = T.Resize((400, 400), antialias=True)
-
     # Loading Dataset and creating the corresponding DataLoader.
-    data = ImageDataset(color_dir=color_dir, gray_dir=None, transform=trans, target_transform=trans)
+    data = ImageDataset(color_dir=color_dir, gray_dir=None)
     data_loader = DataLoader(data, batch_size=20, shuffle=True)
 
     # Setting up activation hooks.
@@ -268,5 +275,11 @@ def render_layer_output(model_file, color_dir, folder_name, file_name, architect
             plt.imshow(activation[layer["name"]][0][i - 1])
 
         if folder_name is not None:
-            makedirs(f"output/{folder_name}", exist_ok=True)
-            plt.savefig(f"output/{folder_name}/layers_{file_name}_{layer['name']}.png")
+            dir_name = join(folder_name, 'output')
+        else:
+            dir_name = 'output'
+
+        makedirs(dir_name, exist_ok=True)
+        f_name = join(dir_name, f"layers_{file_name}_{layer['name']}.png")
+        plt.savefig(f_name)
+        print(f"Plot saved at: {f_name}")

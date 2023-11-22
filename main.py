@@ -8,7 +8,7 @@ import sys
 
 use_gpu = sys.argv[1]
 
-# If have to GPUs and the GPUs are not available
+# If you have to GPUs and the GPUs are not available
 if use_gpu == 'True'  and not is_available():
     print('GPUs not available')	
     exit()

@@ -1,6 +1,6 @@
 from torch.utils.data import DataLoader
-from torchvision import transforms as T
-from Dataset import ImageDataset
+# from torchvision import transforms as T
+from dataset import ImageDataset
 import torch.optim as optim
 import torch.nn as nn
 from torch import save, load
@@ -9,7 +9,7 @@ import json
 import time
 from os import makedirs
 from os.path import join
-from torchinfo import summary
+# from torchinfo import summary
 
 
 def train_model(color_dir, perc, folder_name, file_name, architecture,

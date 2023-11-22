@@ -13,3 +13,5 @@ r*
 *.sh
 
 sclurm_outs/
+
+*.ipynb
