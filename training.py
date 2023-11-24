@@ -119,7 +119,6 @@ def train_model(color_dir, perc, folder_name, file_name, architecture,
     # Plot and save the losses per epoch
     f_name = join(figures_dir, f"loss_per_epoch_training_{file_name}_{learning_rate}_{architecture}.png")
     plot_losses(losses=all_losses,
-                title="Losses per epoch",
                 path=f_name)
     print(f"A plot of losses per epoch is saved at : {f_name}")
 
