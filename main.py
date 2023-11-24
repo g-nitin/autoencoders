@@ -8,8 +8,6 @@ import sys
 
 
 def main():
-
-    '''
     use_gpu = sys.argv[1]
 
     # If you have to GPUs and the GPUs are not available
@@ -17,6 +15,7 @@ def main():
         print('GPUs not available')
         exit()
 
+    '''
     architecture = 1
     learning_rate = 0.001
     perc = 1
