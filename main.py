@@ -15,9 +15,8 @@ def main():
         print('GPUs not available')
         exit()
 
-    '''
     architecture = 1
-    learning_rate = 0.001
+    learning_rate = 0.01
     perc = 1
     prefix = "4"
 
@@ -48,16 +47,7 @@ def main():
     t = time.time() - t
     print(f"Training ran for {time.strftime('%H:%M:%S', time.gmtime(t))}")
     print(f"\n{model_file} created.")
-    # print("\nTesting")
-    '''
-
-    architecture = 1
-    learning_rate = 0.001
-    perc = 1
-    prefix = "4"
-
-    model_file = "results/1_0.001_4/models/cnn_4_0.001_1_full.pt"
-    folder_name = join('results', f"{architecture}_{learning_rate}_{prefix}")
+    print("\nTesting")
 
     test_model(model_file=model_file,
                color_dir=join('data', 'google-landmark', 'test'),
