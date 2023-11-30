@@ -15,10 +15,10 @@ def main():
         print('GPUs not available')
         exit()
 
-    architecture = 1
+    architecture = 2
     learning_rate = 0.01
     perc = 1
-    prefix = "4"
+    prefix = "1"
 
     makedirs('results', exist_ok=True)
     folder_name = join('results', f"{architecture}_{learning_rate}_{prefix}")

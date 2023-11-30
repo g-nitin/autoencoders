@@ -2,6 +2,8 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
+_**In progress:** The work is still in progress and will be updated soon._ 
+
 ## Overview
 
 This project implements a Convolutional Autoencoder for image colorization. The model is designed to take grayscale images as input and generate corresponding colorized versions. It utilizes deep learning techniques, specifically convolutional neural networks, to learn the mapping between grayscale and color images.
