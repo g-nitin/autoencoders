@@ -2,19 +2,29 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-_**In progress:** The work is still in progress and will be updated soon._ 
-
 ## Overview
 
 This project implements a Convolutional Autoencoder for image colorization. The model is designed to take grayscale images as input and generate corresponding colorized versions. It utilizes deep learning techniques, specifically convolutional neural networks, to learn the mapping between grayscale and color images.
-
-[//]: # (![Colorization Example]&#40;link/to/colorization_example.png&#41;)
 
 ## Features
 
 - **Convolutional Autoencoder:** The core of the project is a convolutional autoencoder architecture, which learns to encode and decode image features to perform effective colorization.
 
 - **Grayscale to Color:** The model is trained to transform grayscale images into their corresponding colorized versions, adding vibrancy and detail to the input images.
+
+## Example
+The 1st architecture was used to colorize images.
+
+A visualization of the architecture (using [draw.io](draw.io)) is given below:
+![Architecture](imgs/1_architecture.png)
+
+While many different parameters were tried, the best outputs were from the following parameters:
+* Training on 28411 images.
+* Number of parameters: 889082
+* Running 30 epoch(s)
+* Each epoch runs for 1421 iterations
+* Example on the test set:
+    ![Colorization Example](imgs/0.001_testing.png)
 
 ## Usage
 
@@ -52,6 +62,9 @@ The repository was inspired by George Kamtziridis' [articles](https://medium.com
 
 ### Contributing
 Feel free to contribute by opening issues or pull requests. Any feedback or improvements are welcome!
+
+### Motivation
+This project was inspired by MATH529 class at UofSC during the Fall 2023 semester.
 
 ### Contact
 - **Email:** niting1209@gmail.com

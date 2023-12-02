@@ -27,7 +27,7 @@ def test_model(model_file, color_dir, perc, folder_name, file_name, architecture
 
     # Loading Dataset and creating the corresponding DataLoader.
     data = ImageDataset(color_dir=color_dir, perc=perc, gray_dir=gray_dir)
-    data_loader = DataLoader(data, batch_size=20, shuffle=False, num_workers=8)
+    data_loader = DataLoader(data, batch_size=20, shuffle=False, num_workers=1)
     print(f"Testing on {len(data)} images.")
 
     # Loading the NN and passing the data.
