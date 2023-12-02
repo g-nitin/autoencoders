@@ -15,8 +15,8 @@ This project implements a Convolutional Autoencoder for image colorization. The 
 ## Example
 The 1st architecture was used to colorize images.
 
-A visualization of the architecture (using [draw.io](draw.io)) is given below:
-![Architecture](imgs/1_architecture.png)
+A visualization of the architecture (using [www.draw.io](draw.io)) is given below:
+![Architecture](imgs/1_architecture_white.png)
 
 While many different parameters were tried, the best outputs were from the following parameters:
 * Training on 28411 images.
