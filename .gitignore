@@ -1,3 +1,4 @@
+!imgs/
 results/
 .idea/
 __pycache__/
@@ -18,4 +19,3 @@ r*
 sclurm_outs/
 
 *.ipynb
-!imgs/
