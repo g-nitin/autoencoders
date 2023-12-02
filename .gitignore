@@ -18,3 +18,4 @@ r*
 sclurm_outs/
 
 *.ipynb
+!imgs/
