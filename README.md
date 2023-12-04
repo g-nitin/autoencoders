@@ -64,7 +64,7 @@ The repository was inspired by George Kamtziridis' [articles](https://medium.com
 Feel free to contribute by opening issues or pull requests. Any feedback or improvements are welcome!
 
 ### Motivation
-This project was inspired by MATH529 class at UofSC during the Fall 2023 semester.
+This project was inspired by the materials learned in my MATH529 (Introduction to Deep Learning) class at USC during the Fall 2023 semester.
 
 ### Contact
 - **Email:** niting1209@gmail.com
