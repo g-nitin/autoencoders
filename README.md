@@ -23,6 +23,8 @@ While many different parameters were tried, the best outputs were from the follo
 * Number of parameters: 889082
 * Running 30 epoch(s)
 * Each epoch runs for 1421 iterations
+* Learning rate: 0.001
+* The model file has been included at `results/cnn_final.pt`. 
 * Example on the test set:
     ![Colorization Example](imgs/0.001_testing.png)
 
