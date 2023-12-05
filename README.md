@@ -25,6 +25,7 @@ While many different parameters were tried, the best outputs were from the follo
 * Each epoch runs for 1421 iterations
 * Learning rate: 0.001
 * The model file has been included at `extra/cnn_final.pt`. 
+* A small presentation (in pptx and pdf format) about the project has been included in the `extra` subfolder.
 * Example on the test set:
     ![Colorization Example](extra/0.001_testing.png)
 
