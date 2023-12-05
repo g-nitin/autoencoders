@@ -16,7 +16,7 @@ This project implements a Convolutional Autoencoder for image colorization. The 
 The 1st architecture was used to colorize images.
 
 A visualization of the architecture (using [www.draw.io](draw.io)) is given below:
-![Architecture](imgs/1_architecture_white.png)
+![Architecture](extra/1_architecture_white.png)
 
 While many different parameters were tried, the best outputs were from the following parameters:
 * Training on 28411 images.
@@ -26,7 +26,7 @@ While many different parameters were tried, the best outputs were from the follo
 * Learning rate: 0.001
 * The model file has been included at `results/cnn_final.pt`. 
 * Example on the test set:
-    ![Colorization Example](imgs/0.001_testing.png)
+    ![Colorization Example](extra/0.001_testing.png)
 
 ## Usage
 
