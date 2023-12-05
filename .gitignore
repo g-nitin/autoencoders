@@ -14,7 +14,6 @@ r*
 *.sh
 *.err
 *.out
-*.png
 
 sclurm_outs/
 
