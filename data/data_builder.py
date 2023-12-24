@@ -4,6 +4,7 @@ import shutil
 from torchvision.io import read_image
 import sys
 
+
 def main():
 
     # num_files = get_num_files()
@@ -73,7 +74,7 @@ def main():
     print(f'Removed {test_path_new}')
 
 
-def get_num_files():
+def get_num_files() -> tuple[str, str]:
     """
     Return the number of TAR files to download for training and testing by the user's input
     :return: tuple for the number of training files and the number of testing files.
@@ -84,7 +85,9 @@ def get_num_files():
     return str(train_num), str(test_num)
 
 
-def relocate_jpg_files(src, dst, move=True):
+def relocate_jpg_files(
+        src: str, dst: str, move: bool = True
+    ) -> int:
     """
     Move or Cpy images from the `src` directory to the `dst` directory.
     This is done recursively, meaning that the function will move (or copy) all files in all subdirectories of `src`.
@@ -109,7 +112,9 @@ def relocate_jpg_files(src, dst, move=True):
     return num
 
 
-def get_shape_paths(paths, desired_shape):
+def get_shape_paths(
+        paths: list[str], desired_shape: tuple[int, int, int]
+    ) -> dict[str, tuple[int, int, int]]:
     """
     Given a list of image paths, return a dictionary of the path (key) and its shape (value).
     Only return those images which have the `desired_shape`.
@@ -132,7 +137,9 @@ def get_shape_paths(paths, desired_shape):
     return paths_dict
 
 
-def relocate_from_dict(img_dict, new_path, move=True):
+def relocate_from_dict(
+        img_dict: dict[str, tuple[int, int, int]], new_path: str, move: bool = True
+    ) -> int:
     """
     Relocate files given in the keys of `img_dict` to the `new_path`.
     :param img_dict: dict for the images (as keys)
